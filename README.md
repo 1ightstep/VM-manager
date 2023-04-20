@@ -1,2 +1,1 @@
-# VM manager
- VM manager
+Alpha stage of VM manager created by kAvaras.
