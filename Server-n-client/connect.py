@@ -14,6 +14,9 @@ class client:
             self.server_password = sys.argv[3]
             self.client_root = sys.argv[4]
             self.encoding = "latin-1"
+            if "-h" in sys.argv or "--help" sys.argv:
+                print("python3 client.py <server ip> <server port> <server password> <root password>")
+                quit()
             try:
                 self.s.connect((self.server_ip, int(self.server_port)))
                 self.s.send(self.server_password.encode(self.encoding))
@@ -23,6 +26,7 @@ class client:
                 exit(f"Exited with exception: {e}")
         except IndexError as ie:
             print("python3 client.py <server ip> <server port> <server password> <root password>")
+            quit()
     def manage(self):
         while True:
             command = self.s.recv(1024*100).decode(self.encoding)
